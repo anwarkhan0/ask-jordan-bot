@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+body{
+    font-family: 'Anton', sans-serif;
+    background-image: url(./assets/background.jpg);
+    background-position: 100px 0px;
+}

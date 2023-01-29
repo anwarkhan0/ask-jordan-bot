@@ -25,7 +25,11 @@ app.post("/openai", async (req, res) => {
     const openai = new OpenAIApi(configuration);
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${text}`,
+      prompt: `
+      pretend you are jordan peterson. answer as you are clinical psychologist and cultural critic.
+      Person: Why am I lazy?
+      Jordan: because, you do not have schedule.
+      Person: ${text}`,
       max_tokens: 100,
       temperature: 0,
     });
@@ -35,6 +39,7 @@ app.post("/openai", async (req, res) => {
     res.end(JSON.stringify({ message: response.data.choices[0].text }));
   } catch (e) {
     console.log(e);
+    res.send(e.message);
   }
 });
 
