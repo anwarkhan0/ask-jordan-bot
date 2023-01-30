@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -39,7 +40,8 @@ app.post("/openai", async (req, res) => {
     res.end(JSON.stringify({ message: response.data.choices[0].text }));
   } catch (e) {
     console.log(e);
-    res.send(e.message);
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ message: '' }));
   }
 });
 

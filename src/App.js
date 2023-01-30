@@ -23,7 +23,6 @@ const App = () => {
       setLoader(false);
       setResponse(data.message);
     } catch (err) {
-      alert("something went wrong.");
       console.log(err);
     }
   };
@@ -41,7 +40,7 @@ const App = () => {
         />
         <button type="submit" className=" tracking-wide text-3xl hover:bg-gray-600 w-2/12 m-auto mt-2 p-4 border bg-green-500 text-white rounded-lg">Submit</button>
       </form>
-      { isLoading ? <Spinner className="flex justify-center align-middle" /> : <div className="  tracking-wider w-10/12 m-auto mt-4"><span className="text-3xl">{  response ? 'Jordan:' : '' }</span>{response} </div>}
+      { isLoading ? <Spinner className="" /> : <div className="tracking-wider w-10/12 m-auto mt-4">{response} </div>}
 
 
       
